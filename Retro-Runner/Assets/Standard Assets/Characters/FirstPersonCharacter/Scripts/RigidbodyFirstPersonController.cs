@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Cinemachine;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -76,7 +77,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        public Camera cam;
+        public CinemachineVirtualCamera cam;
         public MovementSettings movementSettings = new MovementSettings();
         public MouseLook mouseLook = new MouseLook();
         public AdvancedSettings advancedSettings = new AdvancedSettings();

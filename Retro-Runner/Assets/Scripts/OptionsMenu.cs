@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.PostProcessing;
 
 public class OptionsMenu : MonoBehaviour {
 
 	public AudioMixer audiomixer;
-	public Dropdown resolutionDropdown;
+	public TMP_Dropdown resolutionDropdown;
     public Toggle fullscreenToggle;
-    public Toggle antialiassingToggle;
+    /*public Toggle antialiassingToggle;*/
     Resolution[] resolutions;
 
 
@@ -49,9 +50,9 @@ public class OptionsMenu : MonoBehaviour {
 
 	}
 
-	public void SetResolution (int resolutionIndex) {
+    public void SetResolution () {
 
-		Resolution resolution = resolutions[resolutionIndex];
+        Resolution resolution = resolutions[resolutionDropdown.value];
 		Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 
 	}
@@ -74,9 +75,9 @@ public class OptionsMenu : MonoBehaviour {
 
     }
 
-	public void SetQuality (int qualityIndex) {
+    public void SetQuality (TMP_Dropdown graphicsDropdown) {
 
-		QualitySettings.SetQualityLevel(qualityIndex);
+        QualitySettings.SetQualityLevel(graphicsDropdown.value);
 
 	}
 

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class DevInfoMenu : MonoBehaviour {
 
-    public Text xAxis;
-    public Text yAxis;
-    public Text zAxis;
-    public Text Distance;
-    public Text Speed;
+    public TMP_Text xAxis;
+    public TMP_Text yAxis;
+    public TMP_Text zAxis;
+    public TMP_Text Distance;
+    public TMP_Text Speed;
     public Rigidbody rigid;
     public float rigidX;
     public float rigidY;
@@ -45,11 +45,11 @@ public class DevInfoMenu : MonoBehaviour {
         roundDistance = Mathf.Round(distance * 10.0f) * 0.1f;
         roundSpeed = Mathf.Round(speed * 10.0f) * 0.1f;
 
-        xAxis.text = "X: " + roundRigidX;
-        yAxis.text = "Y: " + roundRigidY;
-        zAxis.text = "Z: " + roundRigidZ;
-        Distance.text = "Distance: " + roundDistance;
-        Speed.text = "Speed: " + roundSpeed;
+        xAxis.text = "X: " + roundRigidX + " meters";
+        yAxis.text = "Y: " + roundRigidY + " meters";
+        zAxis.text = "Z: " + roundRigidZ + " meters";
+        Distance.text = "Distance: " + roundDistance + " meters";
+        Speed.text = "Speed: " + roundSpeed + " m/s";
 
     }
 }
