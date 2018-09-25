@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Cinemachine;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
