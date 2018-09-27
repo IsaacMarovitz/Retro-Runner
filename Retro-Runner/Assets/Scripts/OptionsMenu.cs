@@ -11,7 +11,6 @@ public class OptionsMenu : MonoBehaviour {
 	public AudioMixer audiomixer;
 	public TMP_Dropdown resolutionDropdown;
     public Toggle fullscreenToggle;
-    /*public Toggle antialiassingToggle;*/
     Resolution[] resolutions;
 
 
@@ -86,14 +85,4 @@ public class OptionsMenu : MonoBehaviour {
 		Screen.fullScreen = isFullscreen;
 
 	}
-
-    /*public void SetAntialiassing (PostProcessingProfile postProcessingProfile, bool antialiassing) {
-
-        if (antialiassing = true) {
-            postProcessingProfile.antialiasing.settings.fxaaSettings.preset
-        }
-        postProcessingProfile.antialiasing.enabled = postProcessingProfile;
-
-    }*/
-
 }

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class OutOfBounds : MonoBehaviour {
 
-    Transform playerTransform;
+    public Transform playerTransform;
     Vector3 OutOfBoundsVector3;
+    public bool isStarted = true;
 
-    void Start() {
-        playerTransform = gameObject.transform;
+    void OnEnable() {
+        if (isStarted == true) {
+            playerTransform.position = new Vector3(0f, 30f, 0f);
+            isStarted = false;
+        }
     }
 
     void Update () {
