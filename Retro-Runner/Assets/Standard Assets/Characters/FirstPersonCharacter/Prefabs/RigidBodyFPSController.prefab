@@ -64,11 +64,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 114869418320363664}
   movementSettings:
-    ForwardSpeed: 20
-    BackwardSpeed: 115
-    StrafeSpeed: 15
-    RunMultiplier: 2
-    RunKey: 304
+    ForwardSpeed: 35
+    BackwardSpeed: 20
+    StrafeSpeed: 20
+    RunMultiplier: 1
+    RunKey: 0
     JumpForce: 10
     SlopeCurveModifier:
       serializedVersion: 2
@@ -105,8 +105,8 @@ MonoBehaviour:
       m_RotationOrder: 4
     CurrentTargetSpeed: 8
   mouseLook:
-    XSensitivity: 2
-    YSensitivity: 2
+    XSensitivity: 5
+    YSensitivity: 5
     clampVerticalRotation: 1
     MinimumX: -90
     MaximumX: 90
@@ -279,6 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b23b63a52eba463389433748766f311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 400002}
+  isStarted: 1
 --- !u!114 &114760630857371294
 MonoBehaviour:
   m_ObjectHideFlags: 1
