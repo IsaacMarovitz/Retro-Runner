@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.PostProcessing;
 
 public class OptionsMenu : MonoBehaviour {
 
@@ -49,8 +48,12 @@ public class OptionsMenu : MonoBehaviour {
 
 	}
 
-    public void SetResolution () {
+    void Update() {
 
+    }
+
+    public void SetResolution () {
+    
         Resolution resolution = resolutions[resolutionDropdown.value];
 		Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 

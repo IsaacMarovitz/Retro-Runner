@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400002}
   - component: {fileID: 5400000}
-  - component: {fileID: 33824795136597620}
+  - component: {fileID: 33239120483717270}
   - component: {fileID: 23147273496435224}
   - component: {fileID: 13600000}
   - component: {fileID: 11400004}
@@ -238,7 +238,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33824795136597620
+--- !u!33 &33239120483717270
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

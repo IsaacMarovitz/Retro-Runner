@@ -2,11 +2,15 @@
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using TMPro;
 
 public class DataClear : MonoBehaviour {
 
+    public TMP_Text clearData;
+
     public void Clear() {
 
+        clearData.text = "";
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
 
@@ -18,6 +22,7 @@ public class DataClear : MonoBehaviour {
         binaryFormatter.Serialize(file, data);
         file.Close();
 
+        clearData.text = "Data Cleared";
         Debug.Log("Data Cleared");
 
     }
