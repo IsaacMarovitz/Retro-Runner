@@ -23,11 +23,11 @@ GameObject:
   - component: {fileID: 33390470936302684}
   - component: {fileID: 23675094038793500}
   - component: {fileID: 136585185608990082}
+  - component: {fileID: 82362598301710694}
   - component: {fileID: 114852474955260342}
   - component: {fileID: 114448772554860976}
   - component: {fileID: 114889822061584106}
-  - component: {fileID: 114165917315310794}
-  - component: {fileID: 82362598301710694}
+  - component: {fileID: 114931192231214282}
   m_Layer: 0
   m_Name: Test Player
   m_TagString: Untagged
@@ -158,7 +158,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 84d781bc011444a9b9ebf52be9b343e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -193,7 +193,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 84d781bc011444a9b9ebf52be9b343e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +250,7 @@ BoxCollider:
   m_GameObject: {fileID: 1435485388506940}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -357,21 +357,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114165917315310794
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1055334539256348}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c00baa01b55a746ad97bf9165566faab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: {fileID: 0}
-  scoreInt: 0
-  player: {fileID: 1055334539256348}
-  ObjectInfo: []
 --- !u!114 &114448772554860976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   FPSCam: {fileID: 114987696511193616}
+  gunLight: {fileID: 0}
 --- !u!114 &114786174026412792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -508,6 +494,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 4375022646273204}
   isStarted: 1
+--- !u!114 &114931192231214282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055334539256348}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdfc1601f77a4a9780c7cc51e5e8764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryItems: []
+  colliders: []
+  radius: 4
+  collactableText: {fileID: 0}
 --- !u!114 &114987696511193616
 MonoBehaviour:
   m_ObjectHideFlags: 1
