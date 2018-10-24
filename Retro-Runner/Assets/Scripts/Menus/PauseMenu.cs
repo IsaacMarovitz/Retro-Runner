@@ -60,22 +60,19 @@ public class PauseMenu : MonoBehaviour {
         Application.Quit();
     }
 
-    public void PlayGame(string SceneName)
-    {
+    public void PlayGame(string SceneName) {
 
         StartCoroutine(LoadAsynchronously(SceneName));
 
     }
 
-    IEnumerator LoadAsynchronously(string SceneName)
-    {
+    IEnumerator LoadAsynchronously(string SceneName) {
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneName);
 
         loadingScreeen.SetActive(true);
 
-        while (!operation.isDone)
-        {
+        while (!operation.isDone) {
 
             float progress = Mathf.Clamp01(operation.progress / .9f);
             slider.value = progress;

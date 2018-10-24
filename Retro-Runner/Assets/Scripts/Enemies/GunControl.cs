@@ -22,7 +22,7 @@ public class GunControl : MonoBehaviour {
     void Shoot () {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, FPSCam.transform.forward, out hit)){
-            // Debug.DrawRay(transform.position, FPSCam.transform.forward * 100, Color.black, 10f, false);
+            Debug.DrawRay(transform.position, FPSCam.transform.forward * 100, Color.black, 10f, false);
             Debug.Log(hit.transform.name);
             EnemyDamage enemy = hit.transform.GetComponent<EnemyDamage>();
             if (enemy != null) {
