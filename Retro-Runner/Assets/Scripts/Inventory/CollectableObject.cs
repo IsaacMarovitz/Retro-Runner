@@ -7,4 +7,8 @@ public class CollectableObject : ScriptableObject {
     public string objectName = "Collectable";
     public Sprite icon;
 
+    public virtual void Use () {
+        // Use object
+        Debug.Log("Using " + objectName);
+    }
 }

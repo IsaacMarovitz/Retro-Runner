@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d4b529ad98eb421e87b62e09f2e1582, type: 3}
-  m_Name: TestObject
+  m_Name: Phaser
   m_EditorClassIdentifier: 
-  objectName: Collectable
+  objectName: Phaser
   icon: {fileID: 21300000, guid: 6345753db8c2c49bfa5ce5893c44a556, type: 3}

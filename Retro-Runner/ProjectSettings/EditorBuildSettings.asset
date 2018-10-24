@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Retro Runner.unity
+    path: Assets/Scenes/Testing/Running.unity
     guid: c95f45c644fd043f8b766dd7c75cc610
+  - enabled: 1
+    path: Assets/Scenes/Testing/Collection.unity
+    guid: 57e7c72b5f2774a988ba1c75f0159d16
+  - enabled: 1
+    path: Assets/Scenes/Testing/Enemies.unity
+    guid: 690f3bbdcc4224e37a6eb10473b16ee5
   m_configObjects: {}
