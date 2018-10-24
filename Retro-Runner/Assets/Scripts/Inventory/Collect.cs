@@ -18,8 +18,11 @@ public class Collect : MonoBehaviour {
                 collactableText.enabled = true;
                 if (Input.GetKeyDown(KeyCode.E)) {
                     objectData = collectableObject.GetComponent<ObjectData>();
-                    Inventory.instance.Add(objectData);
-                    Destroy(collectableObject);
+                    Debug.Log(objectData.name);
+                    bool inventoryAdded = Inventory.instance.Add(objectData.collectableObject);
+                    if (inventoryAdded) {
+                        Destroy(collectableObject);
+                    }
                 }
             } else {
                 collactableText.enabled = false;

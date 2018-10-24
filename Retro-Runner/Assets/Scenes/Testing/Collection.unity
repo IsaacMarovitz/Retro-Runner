@@ -1334,7 +1334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdfc1601f77a4a9780c7cc51e5e8764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
   colliders: []
   radius: 3
   collactableText: {fileID: 1094809561}
@@ -2012,6 +2011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d021533afc38b4dac9eaa1ac070d2754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotParents: {fileID: 1228400062}
 --- !u!114 &1365423084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2303,6 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f920958fbcc445c686db777b13be84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  space: 20
   inventory: []
 --- !u!1001 &1506781731
 Prefab:

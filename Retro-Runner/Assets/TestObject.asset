@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: TestObject
   m_EditorClassIdentifier: 
   objectName: Collectable
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6345753db8c2c49bfa5ce5893c44a556, type: 3}

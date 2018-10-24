@@ -6,13 +6,4 @@ public class ObjectData : MonoBehaviour {
 
     public CollectableObject collectableObject;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
