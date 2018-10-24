@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 23563529559859634}
   - component: {fileID: 135140657976197660}
   - component: {fileID: 54154237607753958}
+  - component: {fileID: 114026261485244614}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: CollectableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 84d781bc011444a9b9ebf52be9b343e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114026261485244614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891734313222432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07826f387f4340a998f9f3ab6b59a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectableObject: {fileID: 11400000, guid: d85bf70d06da64ebf86baa6fcdadf2f8, type: 2}
 --- !u!135 &135140657976197660
 SphereCollider:
   m_ObjectHideFlags: 1

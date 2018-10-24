@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class GunControl : MonoBehaviour {
 
@@ -12,20 +10,20 @@ public class GunControl : MonoBehaviour {
 
     public float damage = 10f;
     public CinemachineVirtualCamera FPSCam;
-    public GameObject gunLight;
-	
+
+    // Shoot obviously
     void Update () {
         if (Input.GetButtonDown("Fire1")) {
             Shoot();
         }
 	}
 
+    // Draw a raycast check if it an enemy if so make them take damage
     void Shoot () {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, FPSCam.transform.forward, out hit)){
             // Debug.DrawRay(transform.position, FPSCam.transform.forward * 100, Color.black, 10f, false);
             Debug.Log(hit.transform.name);
-
             EnemyDamage enemy = hit.transform.GetComponent<EnemyDamage>();
             if (enemy != null) {
                 enemy.Damage(damage);

@@ -1210,7 +1210,8 @@ Prefab:
       propertyPath: collactableText
       value: 
       objectReference: {fileID: 1094809561}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114931192231214282, guid: a65f5f5205c2445699dfcce104d67529, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: a65f5f5205c2445699dfcce104d67529, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &949889825
@@ -1322,6 +1323,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1055334539256348, guid: a65f5f5205c2445699dfcce104d67529,
     type: 2}
   m_PrefabInternal: {fileID: 947851865}
+--- !u!114 &1005243039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1005243038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdfc1601f77a4a9780c7cc51e5e8764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  colliders: []
+  radius: 3
+  collactableText: {fileID: 1094809561}
+  objectData: {fileID: 0}
+  collectableObject: {fileID: 0}
 --- !u!1001 &1043178879
 Prefab:
   m_ObjectHideFlags: 0
@@ -1541,7 +1559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1094809561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2234,6 +2252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1464789013}
   - component: {fileID: 1464789014}
+  - component: {fileID: 1464789015}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Untagged
@@ -2267,12 +2286,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1005243038}
   ObjectInfo:
-  - name: Sphere
+  - name: Collectable Test
     objectPrefab: {fileID: 1891734313222432, guid: d7bc4644e5d3a48cbaeddcf5c1fc7115,
       type: 2}
     objectTransform: {x: 20, y: 10, z: 0}
     objectRotation: {x: 0, y: 0, z: 0, w: 0}
     collectableParent: {fileID: 1464789012}
+--- !u!114 &1464789015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464789012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f920958fbcc445c686db777b13be84c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: []
 --- !u!1001 &1506781731
 Prefab:
   m_ObjectHideFlags: 0
