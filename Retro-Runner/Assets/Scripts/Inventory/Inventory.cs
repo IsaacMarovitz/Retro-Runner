@@ -9,6 +9,10 @@ public class Inventory : MonoBehaviour {
     public delegate void OnIteamChanged();
     public OnIteamChanged onIteamChangedCallback;
 
+    void Start() {
+        inventory = GameControl.Load().inventory;
+    }
+
     // Code for a singleton to save time lol
     void Awake() {
         if (instance != null) {
@@ -22,6 +26,7 @@ public class Inventory : MonoBehaviour {
 
     // Add stuff to inventory
     public bool Add (CollectableObject collectableObject) {
+        Debug.Log("Adding " + collectableObject.name);
         if (inventory.Count >= space) {
             Debug.Log("Not enough space");
             return false;

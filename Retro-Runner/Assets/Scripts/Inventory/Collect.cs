@@ -8,6 +8,8 @@ public class Collect : MonoBehaviour {
     public TMP_Text collactableText;
     public ObjectData objectData;
     public GameObject collectableObject;
+    public Inventory inventory;
+    public GameObject phaser;
 
     void Update () {
         // Make a bubble see whats in it. If it's collectable give the user the option to pick it up
@@ -17,11 +19,16 @@ public class Collect : MonoBehaviour {
                 collectableObject = colliders[i].gameObject;
                 collactableText.enabled = true;
                 if (Input.GetKeyDown(KeyCode.E)) {
-                    objectData = collectableObject.GetComponent<ObjectData>();
-                    Debug.Log(objectData.name);
-                    bool inventoryAdded = Inventory.instance.Add(objectData.collectableObject);
-                    if (inventoryAdded) {
-                        Destroy(collectableObject);
+                    objectData = collectableObject.GetComponent<ObjectData>(); 
+                    if (objectData != null) {
+                        Debug.Log(objectData.name);
+                        bool inventoryAdded = inventory.Add(objectData.collectableObject);
+                        if (inventoryAdded) {
+                            if (objectData.name == "Phaser") {
+                                phaser.SetActive(true);
+                            }
+                            Destroy(collectableObject);
+                        }
                     }
                 }
             } else {

@@ -15,7 +15,7 @@ public class EnemyBehavior : MonoBehaviour {
         StartCoroutine(Shoot(waitTime));
     }
 
-    void Update () {
+    void FixedUpdate () {
         playerTransfrom = GameObject.Find("Test Player").GetComponent<Transform>();
         transform.RotateAround(playerTransfrom.position, axis, speed);
         transform.LookAt(playerTransfrom);

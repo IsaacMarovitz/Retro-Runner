@@ -15,6 +15,10 @@ public class PlayerDamage : MonoBehaviour {
         }
     }
 
+    void Start() {
+        // health = GameControl.LoadHealth();
+    }
+
     void Update() {
         healthText.text = "Health: " + health;
     }

@@ -2,11 +2,13 @@
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Collections.Generic;
 
 public class GameControl : MonoBehaviour {
 
     public static GameControl control;
     public float distance;
+    //public CollectableObject[] inventory;
 
 	void Awake () {
         if (control == null) {
@@ -18,7 +20,7 @@ public class GameControl : MonoBehaviour {
     }
 
 
-    public static void Save (Transform playerPosition, float distance) {
+    public static void Save (Transform playerPosition, float distance, float playerHealth, List<CollectableObject> inventory) {
 
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
@@ -27,47 +29,30 @@ public class GameControl : MonoBehaviour {
         data.positionx = playerPosition.position.x;
         data.positiony = playerPosition.position.y;
         data.positionz = playerPosition.position.z;
+        data.playerHealth = playerHealth;
+        data.inventory = inventory;
         data.distance += distance;
         binaryFormatter.Serialize(file, data);
         file.Close();
 
     }
 
-    public static Vector3 LoadPosition () {
+    public static PlayerData Load () {
 
         if (File.Exists(Application.persistentDataPath + "/playerInfo.dat")) {
-
+            Debug.Log(Application.persistentDataPath);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
             PlayerData data = (PlayerData)binaryFormatter.Deserialize(file);
             file.Close();
 
-            Vector3 position = new Vector3(data.positionx, data.positiony, data.positionz);
-
-            return position;
+            return data;
         } else {
-            return Vector3.zero;
+            return null;
         }
 
     }
 
-    public float LoadDistance () {
-
-        if (File.Exists(Application.persistentDataPath + "/playerInfo.dat")) {
-
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
-            PlayerData data = (PlayerData)binaryFormatter.Deserialize(file);
-            file.Close();
-
-            distance = data.distance;
-
-            return distance;
-        } else {
-            return 0f;
-        }
-
-    }
 }
 
 [Serializable]
@@ -76,4 +61,6 @@ public class PlayerData {
     public float positiony;
     public float positionz;
     public float distance;
+    public List<CollectableObject> inventory;
+    public float playerHealth;
 }
