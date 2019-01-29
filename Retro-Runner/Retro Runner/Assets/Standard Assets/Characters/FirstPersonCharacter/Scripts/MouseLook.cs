@@ -1,11 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace UnityStandardAssets.Characters.FirstPerson
-{
+namespace UnityStandardAssets.Characters.FirstPerson {
     [Serializable]
-    public class MouseLook
-    {
+    public class MouseLook {
         public float XSensitivity = 2f;
         public float YSensitivity = 2f;
         public bool clampVerticalRotation = true;
@@ -20,33 +18,29 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Quaternion m_CameraTargetRot;
         private bool m_cursorIsLocked = true;
 
-        public void Init(Transform character, Transform camera)
-        {
+        public void Init(Transform character, Transform camera) {
             m_CharacterTargetRot = character.localRotation;
             m_CameraTargetRot = camera.localRotation;
         }
 
 
-        public void LookRotation(Transform character, Transform camera)
-        {
+        public void LookRotation(Transform character, Transform camera) {
             float yRot = Input.GetAxis("Mouse X") * XSensitivity;
             float xRot = Input.GetAxis("Mouse Y") * YSensitivity;
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);
 
-            if(clampVerticalRotation)
+            if (clampVerticalRotation)
                 m_CameraTargetRot = ClampRotationAroundXAxis (m_CameraTargetRot);
 
-            if(smooth)
-            {
+            if (smooth) {
                 character.localRotation = Quaternion.Slerp (character.localRotation, m_CharacterTargetRot,
                     smoothTime * Time.deltaTime);
                 camera.localRotation = Quaternion.Slerp (camera.localRotation, m_CameraTargetRot,
                     smoothTime * Time.deltaTime);
             }
-            else
-            {
+            else {
                 character.localRotation = m_CharacterTargetRot;
                 camera.localRotation = m_CameraTargetRot;
             }
@@ -54,48 +48,40 @@ namespace UnityStandardAssets.Characters.FirstPerson
             UpdateCursorLock();
         }
 
-        public void SetCursorLock(bool value)
-        {
+        public void SetCursorLock(bool value) {
             lockCursor = value;
-            if(!lockCursor)
-            {//we force unlock the cursor if the user disable the cursor locking helper
+            if (!lockCursor) {
+                //we force unlock the cursor if the user disable the cursor locking helper
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
         }
 
-        public void UpdateCursorLock()
-        {
+        public void UpdateCursorLock() {
             //if the user set "lockCursor" we check & properly lock the cursos
             if (lockCursor)
                 InternalLockUpdate();
         }
 
-        private void InternalLockUpdate()
-        {
-            if(Input.GetKeyUp(KeyCode.Escape))
-            {
+        private void InternalLockUpdate() {
+            if(Input.GetKeyUp(KeyCode.Escape)) {
                 m_cursorIsLocked = false;
             }
-            else if(Input.GetMouseButtonUp(0))
-            {
+            else if(Input.GetMouseButtonUp(0)) {
                 m_cursorIsLocked = true;
             }
 
-            if (m_cursorIsLocked)
-            {
+            if (m_cursorIsLocked) {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
-            else if (!m_cursorIsLocked)
-            {
+            else if (!m_cursorIsLocked) {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
         }
 
-        Quaternion ClampRotationAroundXAxis(Quaternion q)
-        {
+        Quaternion ClampRotationAroundXAxis(Quaternion q) {
             q.x /= q.w;
             q.y /= q.w;
             q.z /= q.w;

@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour {
             forwardSpeed = maxSpeed;
         }
         rb.velocity = transform.forward * forwardSpeed;
-        newPosition = new Vector3(Mathf.Lerp(transform.position.x, newPositionX, sideSpeed * Time.deltaTime), 0.8f, transform.position.z);
+        newPosition = new Vector3(Mathf.Lerp(transform.position.x, newPositionX, sideSpeed * Time.deltaTime), transform.position.y, transform.position.z);
         transform.position = newPosition;
     }
 }
