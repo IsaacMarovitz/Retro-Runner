@@ -12,7 +12,8 @@ public class TriggerDetect : MonoBehaviour {
 
     // When the player is detected, spawn new ground
     void OnTriggerEnter(Collider collision) {
-        Debug.Log(this.name);
-        spawner.Spawn();
+        if (collision.transform.name == "Player") {
+            spawner.Spawn();
+        }
     }
 }

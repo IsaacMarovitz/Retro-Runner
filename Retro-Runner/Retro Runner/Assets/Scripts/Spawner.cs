@@ -20,6 +20,9 @@ public class Spawner : MonoBehaviour {
     public void Start() {
         SpawnStart();
         SpawnEnemy();
+        SpawnEnemy();
+        SpawnEnemy();
+        SpawnEnemy();
     }
 
     public void SpawnStart() {

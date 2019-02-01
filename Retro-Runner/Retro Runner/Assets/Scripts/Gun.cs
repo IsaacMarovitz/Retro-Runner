@@ -3,7 +3,7 @@
 public class Gun : MonoBehaviour {
 
     public float damage = 10f;
-    public Camera fpsCam;
+    public GameObject rayOrigin;
 
     void Update() {
         if (Input.GetButtonDown("Fire1")) {
@@ -13,9 +13,13 @@ public class Gun : MonoBehaviour {
 
     void Shoot() {
         RaycastHit hit;
-        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit)) {
+        if(Physics.Raycast(rayOrigin.transform.position, this.transform.forward, out hit)) {
+            Debug.DrawRay(rayOrigin.transform.position, this.transform.forward, Color.black, 100f);
             Debug.Log(hit.transform.name);
-            Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.forward, Color.black, 100f);
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            if (enemy != null) {
+                enemy.Damage(10);
+            }
         }
     }
 }

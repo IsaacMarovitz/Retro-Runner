@@ -105,7 +105,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  playerPosition: {x: 0, y: 0, z: 0}
-  speed: 1
-  zOffset: 4
-  yOffset: 2
+  enemyPosition: {x: 0, y: 0, z: 0}
+  speed: 50
+  xOffset: 0
+  yOffset: 20
+  zOffset: -4
+  health: 100
+  shootSpeed: 0
+  xRangeMax: 5
+  xRangeMin: -5
+  yRangeMax: 5
+  yRangeMin: 0
