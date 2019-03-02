@@ -26,7 +26,7 @@ public class Collision : MonoBehaviour {
 
         lastVelocity = player.velocity;
         if (hasCollided) {
-            if (force < -200) {
+            if (force < -300) {
                 movement.enabled = false;
                 FindObjectOfType<Manager>().EndGame();
             }

@@ -14,6 +14,8 @@ public class Manager : MonoBehaviour {
     public GameObject gameFinished;
     public GameObject player;
     public GameObject startUI;
+    public GameObject paused;
+    public GameObject settings;
     public float waitTime;
     public bool ended = false;
     public bool finished = false;
@@ -32,6 +34,26 @@ public class Manager : MonoBehaviour {
         } else {
             startUI.SetActive(false);
             player.GetComponent<Movement>().enabled = true;
+        }
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape) && Menu.gameHasStarted && !ended && !finished  && !completed) {
+            if (settings.activeSelf) {
+                paused.SetActive(true);
+                settings.SetActive(false);
+            } else if (paused.activeSelf) {
+                paused.SetActive(false);
+                Time.timeScale = 1f;
+            } else {
+                paused.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        } else if (Input.GetKeyDown(KeyCode.Escape) && !Menu.gameHasStarted && !ended && !finished  && !completed) {
+            if (settings.activeSelf) {
+                startUI.SetActive(true);
+                settings.SetActive(false);
+            }
         }
     }
 
