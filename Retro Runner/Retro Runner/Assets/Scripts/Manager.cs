@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Manager : MonoBehaviour {
 
@@ -16,6 +17,8 @@ public class Manager : MonoBehaviour {
     public GameObject startUI;
     public GameObject paused;
     public GameObject settings;
+    public AudioSource button;
+    public TMP_Text levelName;
     public float waitTime;
     public bool ended = false;
     public bool finished = false;
@@ -58,6 +61,7 @@ public class Manager : MonoBehaviour {
     }
 
     void GenerateLevel() {
+        levelName.text = levels[levelIndex].levelName;
         Texture2D map = levels[levelIndex].map;
         for (int z = 0; z < map.width; z++) {
             for (int x = 0; x < map.height; x++) {
@@ -137,11 +141,17 @@ public class Manager : MonoBehaviour {
     }
 
     public void Restart() {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextLevel() {
         levelIndex++;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ButtonSound() {
+        button.Play();
     }
 }

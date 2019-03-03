@@ -1,39 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 
 public class SettingsMenu : MonoBehaviour {
 
     public string[] qualitySettings;
-    public Resolution[] resolutionSettings;
     public int qualityIndex;
-    public int resolutionIndex;
-    public AudioSource music;
+    public static Resolution[] resolutionSettings;
+    public static int resolutionIndex;
+    public List<string> resolutionSettingsInspector;
+    public int resolutionIndexInspector;
+    public AudioMixer audio;
     public GameObject start;
     public GameObject paused;
     public GameObject settings;
     public TMP_Text quality;
     public TMP_Text resolution;
     public Slider musicVolume;
+    public Slider sfxVolume;
     public Toggle windowedToggle;
 
     void Start() {
-        music = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
         qualitySettings = QualitySettings.names;
         resolutionSettings = Screen.resolutions;
-        Screen.fullScreen = true;
         qualityIndex = QualitySettings.GetQualityLevel();
         for (int i = 0; i < resolutionSettings.Length; i++) {
-            if (resolutionSettings[i].ToString() == Screen.currentResolution.ToString()) {
-                resolutionIndex = i;
+            if ((Screen.currentResolution.height == resolutionSettings[i].height) && (Screen.currentResolution.width == resolutionSettings[i].width) && (Screen.currentResolution.refreshRate == resolutionSettings[i].refreshRate)) {
+                resolutionIndex = i;  
             }
         }
         quality.text = qualitySettings[qualityIndex];
         resolution.text = resolutionSettings[resolutionIndex].width + " x " + resolutionSettings[resolutionIndex].height;
-        musicVolume.value = music.volume;
         windowedToggle.isOn = Screen.fullScreen;
+        for (int i = 0; i < resolutionSettings.Length; i++) {
+            resolutionSettingsInspector.Add(resolutionSettings[i].ToString());
+        }
+        resolutionIndexInspector = resolutionIndex;
     }
 
     public void Back() {
@@ -65,6 +70,7 @@ public class SettingsMenu : MonoBehaviour {
     public void ResolutionLeft() {
         if (!(resolutionIndex <= 0)) {
             resolutionIndex -= 1;
+            resolutionIndexInspector = resolutionIndex;
             resolution.text = resolutionSettings[resolutionIndex].width + " x " + resolutionSettings[resolutionIndex].height;
             Screen.SetResolution(resolutionSettings[resolutionIndex].width, resolutionSettings[resolutionIndex].height, windowedToggle.isOn);
         }
@@ -73,6 +79,7 @@ public class SettingsMenu : MonoBehaviour {
     public void ResolutionRight() {
         if (!(resolutionIndex >= resolutionSettings.Length - 1)) {
             resolutionIndex += 1;
+            resolutionIndexInspector = resolutionIndex;
             resolution.text = resolutionSettings[resolutionIndex].width + " x " + resolutionSettings[resolutionIndex].height;
             Screen.SetResolution(resolutionSettings[resolutionIndex].width, resolutionSettings[resolutionIndex].height, windowedToggle.isOn);
         }
@@ -82,7 +89,11 @@ public class SettingsMenu : MonoBehaviour {
         Screen.fullScreen = windowedToggle.isOn;
     }
 
-    public void Volume() {
-        music.volume = musicVolume.value;
+    public void MusicVolume() {
+        audio.SetFloat("MusicVolume", musicVolume.value);
+    }
+
+    public void SFXVolume() {
+        audio.SetFloat("SFXVolume", sfxVolume.value);
     }
 }

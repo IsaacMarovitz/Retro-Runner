@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour {
 
     public Transform player;
-    public TMP_Text score;
+    public Slider score;
 
     void Update() {
-        score.text = player.position.z.ToString("0");
+        score.value = player.position.z;
     }
 }
