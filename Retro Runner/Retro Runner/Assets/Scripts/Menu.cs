@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour {
     public GameObject player;
     public GameObject settings;
     public GameObject startMenu;
+    public GameObject gameUI;
     public Animator animator;
     public static bool gameHasStarted;
 
@@ -18,6 +19,7 @@ public class Menu : MonoBehaviour {
     public void StartGame() {
         animator.Play("Start");
         gameHasStarted = true;
+        gameUI.SetActive(true);
     }
 
     public void HideUI() {

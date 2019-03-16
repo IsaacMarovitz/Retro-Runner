@@ -17,6 +17,7 @@ public class Manager : MonoBehaviour {
     public GameObject startUI;
     public GameObject paused;
     public GameObject settings;
+    public GameObject gameUI;
     public AudioSource button;
     public TMP_Text levelName;
     public float waitTime;
@@ -27,6 +28,7 @@ public class Manager : MonoBehaviour {
     public static int levelIndex;
 
     void Start() {
+        Time.timeScale = 1f;
         obstacleParent = GameObject.Find("Obstacles").GetComponent<Transform>();
         player = GameObject.Find("Player");
         GenerateLevel();
@@ -36,6 +38,7 @@ public class Manager : MonoBehaviour {
             hasStarted = true;
         } else {
             startUI.SetActive(false);
+            gameUI.SetActive(true);
             player.GetComponent<Movement>().enabled = true;
         }
     }

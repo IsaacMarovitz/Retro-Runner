@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3710009cc0b914f3ab2019ab86f5e7f8, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  levelName: The Begining Begins
+  levelName: The Beginning Begins
   map: {fileID: 2800000, guid: 024129874555847d78dadd7da367f25c, type: 3}

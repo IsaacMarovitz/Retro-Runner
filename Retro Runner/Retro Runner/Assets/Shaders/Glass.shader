@@ -5,6 +5,7 @@ Shader "Unlit/FrostedGlass"
     Properties
     {
         _Radius("Radius", Range(0, 255)) = 0
+        _MainTex ("Texture", 2D) = "white" {}
     }
 
     Category
